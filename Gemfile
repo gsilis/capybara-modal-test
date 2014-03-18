@@ -40,6 +40,7 @@ end
 
 group :development do
   gem 'guard'
+  gem 'guard-rspec'
 end
 
 # Use ActiveModel has_secure_password
