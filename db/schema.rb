@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318143727) do
+ActiveRecord::Schema.define(version: 20140318195432) do
 
-  create_table "pretty_lists", force: true do |t|
+  create_table "pretty_list_items", force: true do |t|
     t.string   "title"
     t.text     "description"
     t.integer  "sort_order"
@@ -21,6 +21,6 @@ ActiveRecord::Schema.define(version: 20140318143727) do
     t.datetime "updated_at"
   end
 
-  add_index "pretty_lists", ["sort_order"], name: "index_pretty_lists_on_sort_order"
+  add_index "pretty_list_items", ["sort_order"], name: "index_pretty_list_items_on_sort_order"
 
 end
