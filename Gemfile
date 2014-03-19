@@ -37,6 +37,7 @@ group :development, :test do
   gem 'fabricator'
   gem 'rspec-rails'
   gem 'better_errors'
+  gem 'faker'
 end
 
 group :development do
