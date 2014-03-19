@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140318195432) do
+ActiveRecord::Schema.define(version: 20140319014016) do
 
   create_table "pretty_list_items", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.text     "description"
     t.integer  "sort_order"
     t.datetime "created_at"
