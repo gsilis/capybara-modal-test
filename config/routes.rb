@@ -14,7 +14,7 @@ CapybaraModalTest::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  resources :pretty_lists, controller: :pretty_list_items
+  resources :pretty_lists, controller: :pretty_list_items, as: :pretty_list_items
 
   # Example resource route with options:
   #   resources :products do
