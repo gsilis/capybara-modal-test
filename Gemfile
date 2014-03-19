@@ -34,7 +34,7 @@ end
 
 group :development, :test do
   gem 'capybara'
-  gem 'fabricator'
+  gem 'fabrication'
   gem 'rspec-rails'
   gem 'better_errors'
   gem 'faker'
