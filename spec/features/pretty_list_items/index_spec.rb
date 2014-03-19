@@ -17,4 +17,14 @@ feature 'Pretty list items index' do
     end
   end
 
+  scenario 'it removes the item from the page' do
+    visit '/'
+
+    first_list_item = pretty_list_items.first
+    click_link 'Remove', href: pretty_list_item_path(first_list_item)
+
+    expect(page).to have_text("'#{first_list_item.name}' was removed from the list.")
+    expect(page).to_not have_link('Edit', href: edit_pretty_list_item_path(first_list_item))
+  end
+
 end
