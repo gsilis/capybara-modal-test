@@ -1,12 +1,14 @@
 %h1.page-header
   Pretty List Items
-  =link_to [:new, :pretty_list_item], class: %w[btn btn-primary] do
-    %i.icon-plus
-    Add
 .pretty-list
   %ul
-    - @list_items.each do |item|
+    -@list_items.each do |item|
       %li
         %span= item.name
         =link_to [:edit, item], class: 'btn', remote: true do
           Edit
+        =link_to [item], class: 'btn btn-danger', remote: true do
+          Remove
+  =link_to [:new, :pretty_list_item], class: %w[btn btn-primary], remote: true do
+    %i.icon-plus
+    Add
