@@ -13,6 +13,7 @@ feature 'Pretty list items index' do
     pretty_list_items.each do |item|
       expect(page).to have_text(item.name)
       expect(page).to have_link('Edit', href: edit_pretty_list_item_path(item))
+      expect(page).to have_link('Remove', href: pretty_list_item_path(item))
     end
   end
 
