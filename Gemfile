@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 1.2'
 # Alternative to Embedded Ruby (ERB)
 gem 'haml-rails'
 
+# Default styling
+gem 'twitter-bootstrap-rails'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
