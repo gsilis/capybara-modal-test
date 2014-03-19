@@ -46,6 +46,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test do
+  gem 'poltergeist'
+end
+
 group :development do
   gem 'guard'
   gem 'guard-rspec'
