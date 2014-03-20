@@ -39,16 +39,16 @@ group :doc do
 end
 
 group :development, :test do
-  gem 'capybara'
-  gem 'fabrication'
-  gem 'rspec-rails'
   gem 'better_errors'
-  gem 'faker'
 end
 
 group :test do
   gem 'poltergeist'
   gem 'database_cleaner'
+  gem 'capybara'
+  gem 'fabrication'
+  gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :development do
