@@ -28,4 +28,23 @@ feature 'Pretty list items index' do
     expect(page).to have_text("'#{first_list_item.name}' was removed from the list.")
   end
 
+  scenario 'it can add new list items', js: true do
+    visit '/'
+
+    click_link 'Add', href: new_pretty_list_item_path
+
+    params = {
+      name: Faker::Name.name,
+      description: Faker::Lorem.paragraph
+    }
+
+    fill_in 'Name',         with: params[:name]
+    fill_in 'Description',  with: params[:description]
+    click_button 'Save'
+
+    last_list_item = PrettyListItem.last
+
+    expect(page).to have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: params[:name])
+  end
+
 end
