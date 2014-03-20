@@ -21,9 +21,19 @@
 
 en:
   activerecord:
-    models:
+    flash:
       pretty_list_item:
-        flash:
-          destroy:
-            notice: "'%{name}' was removed from the list."
-            error: "'%{name}' could not be removed from the list."
+        destroy:
+          notice: "'%{name}' was removed from the list."
+          error: "'%{name}' could not be removed from the list."
+    attributes:
+      pretty_list_item:
+        name: "Item Name"
+        description: "Item Description"
+  helpers:
+    submit:
+      create: "Create"
+      update: "Update"
+      pretty_list_item:
+        create: "Save"
+        update: "Save"
