@@ -48,6 +48,7 @@ end
 
 group :test do
   gem 'poltergeist'
+  gem 'database_cleaner'
 end
 
 group :development do
