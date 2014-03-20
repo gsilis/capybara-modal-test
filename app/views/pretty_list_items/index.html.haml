@@ -2,13 +2,13 @@
   Pretty List Items
 .pretty-list
   %ul
-    -@list_items.each do |item|
+    - @list_items.each do |item|
       %li{ id: dom_id(item) }
         %span= item.name
-        =link_to 'Edit',  [:edit, item], class: 'btn',             remote: true
-        =link_to          [item],        class: 'btn btn-danger',  remote: true, method: :delete do
+        = link_to 'Edit',  [:edit, item], class: 'btn',             remote: true
+        = link_to          [item],        class: 'btn btn-danger',  remote: true, method: :delete do
           %i.icon-remove
           Remove
-  =link_to [:new, :pretty_list_item],  class: %w[btn btn-primary], remote: true do
+  = link_to [:new, :pretty_list_item],  class: %w[btn btn-primary], remote: true do
     %i.icon-plus
     Add
