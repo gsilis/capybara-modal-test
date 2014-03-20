@@ -28,7 +28,7 @@ RSpec.configure do |config|
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
   # instead of true.
-  config.use_transactional_fixtures = true
+  config.use_transactional_fixtures = false
 
   # If true, the base class of anonymous controllers will be inferred
   # automatically. This will be the default behavior in future versions of
@@ -40,6 +40,19 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  # Configuration for js tests
+  # The database won't be available for JS tests unless we set it up differently
+  config.before(:each) do
+    ActionMailer::Base.deliveries.clear
+
+    if example.metadata[:js] || example.metadata[:type] == :feature
+      DatabaseCleaner.strategy = :deletion
+    else
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.start
+    end
+  end
 end
 
 Capybara.javascript_driver = :poltergeist
