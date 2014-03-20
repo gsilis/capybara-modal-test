@@ -45,6 +45,7 @@ feature 'Pretty list items index' do
     last_list_item = PrettyListItem.last
 
     expect(page).to have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: params[:name])
+    expect(page).to have_text("'#{last_list_item.name}' was added to the list.")
   end
 
 end
