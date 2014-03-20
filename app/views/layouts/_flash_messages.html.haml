@@ -1,0 +1,6 @@
+-if flash.any?
+  -flash.each do |key, message|
+    -if key == :notice
+      %div.alert.alert-info.alert-dismissable=message
+    -elsif key == :error
+      %div.alert.alert-danger.alert-dismissable=message
