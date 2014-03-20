@@ -43,6 +43,10 @@ RSpec.configure do |config|
 
   # Configuration for js tests
   # The database won't be available for JS tests unless we set it up differently
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
   config.before(:each) do
     ActionMailer::Base.deliveries.clear
 
