@@ -11,6 +11,7 @@ feature 'Pretty list items index' do
     expect(page).to have_link('Add', href: new_pretty_list_item_path)
 
     pretty_list_items.each do |item|
+      expect(page).to have_selector("#pretty_list_item_#{item.id}")
       expect(page).to have_text(item.name)
       expect(page).to have_link('Edit', href: edit_pretty_list_item_path(item))
       expect(page).to have_link('Remove', href: pretty_list_item_path(item))
@@ -23,7 +24,7 @@ feature 'Pretty list items index' do
     first_list_item = pretty_list_items.first
     click_link 'Remove', href: pretty_list_item_path(first_list_item)
 
-    expect(page).to_not have_link('Edit', href: edit_pretty_list_item_path(first_list_item))
+    expect(page).to_not have_css("#pretty_list_item_#{first_list_item.id}")
     expect(page).to have_text("'#{first_list_item.name}' was removed from the list.")
   end
 
