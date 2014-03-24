@@ -48,4 +48,15 @@ feature 'Pretty list items index' do
     expect(page).to have_text("'#{last_list_item.name}' was added to the list.")
   end
 
+  scenario 'it displays the modal properly when validations errors occur', js: true do
+    visit '/'
+
+    click_link 'Add', href: new_pretty_list_item_path
+    click_button 'Save'
+
+    expect(page).to have_text('Item Name can\'t be blank')
+    expect(page).to have_text('Sort order is not a number')
+    expect(page).to have_selector('.modal-backdrop', count: 1)
+  end
+
 end
