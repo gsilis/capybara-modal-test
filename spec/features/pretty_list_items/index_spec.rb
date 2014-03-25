@@ -55,7 +55,7 @@ feature 'Pretty list items index' do
     click_button 'Save'
 
     expect(page).to have_text('Item Name can\'t be blank')
-    expect(page).to have_text('Sort order is not a number')
+    expect(page).to_not have_text('Sort order is not a number')
     expect(page).to have_selector('.modal-backdrop', count: 1)
   end
 
