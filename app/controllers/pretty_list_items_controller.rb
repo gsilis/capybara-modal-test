@@ -1,10 +1,16 @@
 class PrettyListItemsController < ApplicationController
   before_action :fetch_pretty_list_items
-  before_action :fetch_pretty_list_item, only: [:destroy]
+  before_action :fetch_pretty_list_item, only: [:edit, :destroy, :update]
 
   def new
     @list_item = PrettyListItem.new
 
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def edit
     respond_to do |format|
       format.js
     end
@@ -24,6 +30,19 @@ class PrettyListItemsController < ApplicationController
     else
       respond_to do |format|
         format.js { render action: :new }
+      end
+    end
+  end
+
+  def update
+    if @list_item.update_attributes pretty_list_item_params
+      respond_to do |format|
+        flash.now[:notice] = t('activerecord.flash.pretty_list_item.update.notice', name: @list_item.name)
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js { render action: :edit }
       end
     end
   end
