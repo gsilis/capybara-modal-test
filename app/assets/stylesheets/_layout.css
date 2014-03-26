@@ -5,3 +5,12 @@ body {
 .modal form {
     margin: 0;
 }
+
+.modal form > .alert {
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.alert ul {
+    margin-bottom: 0;
+}
