@@ -1,0 +1,14 @@
+(function () {
+    var form_dom = '<%= escape_javascript render(template: 'pretty_list_items/new', formats: [:html]) %>';
+
+    if ($('div.modal').length > 0) {
+
+        $('div.modal').replaceWith(form_dom);
+        $('div.modal-backdrop').remove();
+        if ( !$('div.modal').hasClass('in') ) $('div.modal').modal('show');
+    } else {
+
+        $('body').append(form_dom);
+        $('div.modal').modal();
+    }
+})();
