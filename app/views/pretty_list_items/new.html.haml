@@ -1,0 +1,13 @@
+%div{ class: (@list_item.errors.any? ? 'modal' : 'modal fade') }
+  %div.modal-dialog
+    %div.modal-content
+      = form_for @list_item, remote: true do |builder|
+        %div.modal-header
+          %h2
+            New List Item
+        %div.modal-body
+          = render 'form', f: builder
+        %div.modal-footer
+          %a.btn{ data: { dismiss: 'modal' } }
+            Cancel
+          = builder.submit nil, class: %w[btn btn-primary]
