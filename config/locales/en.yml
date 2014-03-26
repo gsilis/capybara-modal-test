@@ -26,7 +26,7 @@ en:
         create:
           notice: "'%{name}' was added to the list."
         update:
-          notice: "'%{name} was changed."
+          notice: "'%{name}' was changed."
         destroy:
           notice: "'%{name}' was removed from the list."
           error: "'%{name}' could not be removed from the list."
