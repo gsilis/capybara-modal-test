@@ -2,7 +2,30 @@ class PrettyListItemsController < ApplicationController
   before_action :fetch_pretty_list_items
   before_action :fetch_pretty_list_item, only: [:destroy]
 
+  def new
+    @list_item = PrettyListItem.new
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def index
+  end
+
+  def create
+    @list_item = PrettyListItem.new create_params
+
+    if @list_item.save
+      respond_to do |format|
+        flash.now[:notice] = t('activerecord.flash.pretty_list_item.create.notice', name: @list_item.name)
+        format.js
+      end
+    else
+      respond_to do |format|
+        format.js { render action: :new }
+      end
+    end
   end
 
   def destroy
@@ -22,5 +45,9 @@ class PrettyListItemsController < ApplicationController
 
     def fetch_pretty_list_item
       @list_item = PrettyListItem.find params[:id]
+    end
+
+    def create_params
+      params[:pretty_list_item].permit(:name, :description)
     end
 end
