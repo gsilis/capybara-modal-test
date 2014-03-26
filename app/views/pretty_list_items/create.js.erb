@@ -1,3 +1,3 @@
 $('.pretty-list ul').append('<%= escape_javascript render(partial: 'pretty_list_items/index_item', locals: { item: @list_item }) %>');
-$('h1').after('<%= escape_javascript render(partial: 'layouts/flash_messages') %>');
 $('div.modal').modal('hide');
+displayFlashMessage('<%= escape_javascript render(partial: 'layouts/flash_messages') %>');
