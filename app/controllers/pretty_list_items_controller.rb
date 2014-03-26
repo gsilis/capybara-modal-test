@@ -14,7 +14,7 @@ class PrettyListItemsController < ApplicationController
   end
 
   def create
-    @list_item = PrettyListItem.new create_params
+    @list_item = PrettyListItem.new pretty_list_item_params
 
     if @list_item.save
       respond_to do |format|
@@ -47,7 +47,7 @@ class PrettyListItemsController < ApplicationController
       @list_item = PrettyListItem.find params[:id]
     end
 
-    def create_params
+    def pretty_list_item_params
       params[:pretty_list_item].permit(:name, :description)
     end
 end
