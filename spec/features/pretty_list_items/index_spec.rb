@@ -1,5 +1,10 @@
 require 'spec_helper'
 
+# The trick for this batch of tests was to use page instead of
+# page.body. Trying to be too specific, I thought it was a
+# good idea to use body, but it only contains the static DOM
+# after the page has been initially loaded.
+
 feature 'Pretty list items index' do
 
   let!(:pretty_list_items) { Fabricate.times 4, :pretty_list_item }
@@ -39,6 +44,21 @@ feature 'Pretty list items index' do
 
     expect(page).to     have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was added to the list.")
+    expect(page).to_not have_selector('.modal-backdrop')
+    expect(page).to_not have_selector('.modal.in')
+  end
+
+  scenario 'it can update existing items', js: true do
+    first_list_item = pretty_list_items.first
+
+    visit '/'
+
+    click_link    'Edit', href: edit_pretty_list_item_path(first_list_item)
+    fill_in       'Name', with: valid_params[:name]
+    click_button  'Save'
+
+    expect(page).to     have_xpath('//div[@class=\"pretty-list\"]/ul/li/span', text: valid_params[:name])
+    expect(page).to     have_text("'#{valid_params[:name]}' was changed.")
     expect(page).to_not have_selector('.modal-backdrop')
     expect(page).to_not have_selector('.modal.in')
   end
