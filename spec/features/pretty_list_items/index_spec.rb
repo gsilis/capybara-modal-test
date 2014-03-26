@@ -74,4 +74,7 @@ feature 'Pretty list items index' do
     expect(page).to_not have_text('Sort order is not a number')
   end
 
+  scenario 'it allows for sorting of the items' do
+  end
+
 end
