@@ -42,10 +42,10 @@ feature 'Pretty list items index' do
     fill_in 'Description',  with: params[:description]
     click_button 'Save'
 
-    last_list_item = PrettyListItem.last
-
     expect(page).to have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: params[:name])
-    expect(page).to have_text("'#{last_list_item.name}' was added to the list.")
+    expect(page).to have_text("'#{params[:name]}' was added to the list.")
+    expect(page).to_not have_selector('.modal-backdrop')
+    expect(page).to_not have_selector('.modal.in')
   end
 
   scenario 'it displays the modal properly when validations errors occur', js: true do
