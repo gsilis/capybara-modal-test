@@ -42,7 +42,7 @@ feature 'Pretty list items index' do
     fill_in       'Description',  with: valid_params[:description]
     click_button  'Save'
 
-    expect(page).to     have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: valid_params[:name])
+    expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li[last()]/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was added to the list.")
     expect(page).to_not have_selector('.modal-backdrop')
     expect(page).to_not have_selector('.modal.in')
@@ -57,7 +57,7 @@ feature 'Pretty list items index' do
     fill_in       'Name', with: valid_params[:name]
     click_button  'Save'
 
-    expect(page).to     have_xpath('//div[@class=\"pretty-list\"]/ul/li/span', text: valid_params[:name])
+    expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was changed.")
     expect(page).to_not have_selector('.modal-backdrop')
     expect(page).to_not have_selector('.modal.in')
