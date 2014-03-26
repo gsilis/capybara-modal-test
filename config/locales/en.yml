@@ -23,6 +23,8 @@ en:
   activerecord:
     flash:
       pretty_list_item:
+        create:
+          notice: "'%{name}' was added to the list."
         destroy:
           notice: "'%{name}' was removed from the list."
           error: "'%{name}' could not be removed from the list."
