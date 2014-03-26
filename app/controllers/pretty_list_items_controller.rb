@@ -7,9 +7,7 @@ class PrettyListItemsController < ApplicationController
 
   def destroy
     if @list_item.destroy
-      flash.now[:notice] = t('activerecord.models.pretty_list_item.flash.destroy.notice', name: @list_item.name)
-    else
-      flash.now[:error] = t('activerecord.models.pretty_list_item.flash.destroy.error', name: @list_item.name)
+      flash.now[:notice] = t('activerecord.flash.pretty_list_item.destroy.notice', name: @list_item.name)
     end
 
     respond_to do |format|
