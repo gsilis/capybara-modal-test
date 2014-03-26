@@ -1,3 +1,7 @@
 body {
     padding: 0 20px;
 }
+
+.modal form {
+    margin: 0;
+}
