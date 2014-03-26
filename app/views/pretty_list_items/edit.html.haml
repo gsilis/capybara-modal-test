@@ -4,7 +4,7 @@
       = form_for @list_item, remote: true do |builder|
         %div.modal-header
           %h2
-            New List Item
+            Edit List Item
         - if builder.object.errors.any?
           = render 'layouts/activemodel_errors', resource: builder.object
         %div.modal-body

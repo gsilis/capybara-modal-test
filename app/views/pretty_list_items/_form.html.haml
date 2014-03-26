@@ -1,8 +1,6 @@
-- if f.object.errors.any?
-  = render 'layouts/activemodel_errors', resource: f.object
 %div.control-group
   = f.label      :name
-  = f.text_field :name, placeholder: t('activerecord.attributes.pretty_list_item.name')
+  = f.text_field :name, placeholder: t('activerecord.attributes.pretty_list_item.name'), autofocus: true
 %div.control-group
   = f.label      :description
   = f.text_area  :description, placeholder: t('activerecord.attributes.pretty_list_item.description')
