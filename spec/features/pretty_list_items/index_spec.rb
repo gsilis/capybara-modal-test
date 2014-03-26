@@ -3,6 +3,7 @@ require 'spec_helper'
 feature 'Pretty list items index' do
 
   let!(:pretty_list_items) { Fabricate.times 4, :pretty_list_item }
+  let!(:create_params) { { name: Faker::Name.name, description: Faker::Lorem.paragraph } }
 
   scenario 'it displays the pretty list items properly' do
     visit '/'
@@ -33,17 +34,12 @@ feature 'Pretty list items index' do
 
     click_link 'Add', href: new_pretty_list_item_path
 
-    params = {
-      name: Faker::Name.name,
-      description: Faker::Lorem.paragraph
-    }
-
-    fill_in 'Name',         with: params[:name]
-    fill_in 'Description',  with: params[:description]
+    fill_in 'Name',         with: create_params[:name]
+    fill_in 'Description',  with: create_params[:description]
     click_button 'Save'
 
-    expect(page).to have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: params[:name])
-    expect(page).to have_text("'#{params[:name]}' was added to the list.")
+    expect(page).to have_xpath("//div[@class=\"pretty-list\"]/ul/li[last()]/span", text: create_params[:name])
+    expect(page).to have_text("'#{create_params[:name]}' was added to the list.")
     expect(page).to_not have_selector('.modal-backdrop')
     expect(page).to_not have_selector('.modal.in')
   end
