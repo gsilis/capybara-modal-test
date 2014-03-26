@@ -17,3 +17,7 @@
 
 # Ignore rspec stuff
 .rspec
+
+# Since we're using sublime text....
+*.sublime-project
+*.sublime-workspace
