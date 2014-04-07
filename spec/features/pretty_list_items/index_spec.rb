@@ -17,7 +17,7 @@ feature 'Pretty list items index' do
     expect(page).to have_link('Add', href: new_pretty_list_item_path)
 
     pretty_list_items.each do |item|
-      expect(page).to have_selector("#pretty_list_item_#{item.id}")
+      expect(page).to have_css("#pretty_list_item_#{item.id}")
       expect(page).to have_text(item.name)
       expect(page).to have_link('Edit', href: edit_pretty_list_item_path(item))
       expect(page).to have_link('Remove', href: pretty_list_item_path(item))
@@ -44,8 +44,8 @@ feature 'Pretty list items index' do
 
     expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li[last()]/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was added to the list.")
-    expect(page).to_not have_selector('.modal-backdrop')
-    expect(page).to_not have_selector('.modal.in')
+    expect(page).to_not have_css('.modal-backdrop')
+    expect(page).to_not have_css('.modal.in')
   end
 
   scenario 'it can update existing items', js: true do
@@ -59,8 +59,8 @@ feature 'Pretty list items index' do
 
     expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was changed.")
-    expect(page).to_not have_selector('.modal-backdrop')
-    expect(page).to_not have_selector('.modal.in')
+    expect(page).to_not have_css('.modal-backdrop')
+    expect(page).to_not have_css('.modal.in')
   end
 
   scenario 'it displays the modal properly when validations errors occur', js: true do
@@ -70,7 +70,7 @@ feature 'Pretty list items index' do
     click_button 'Save'
 
     expect(page).to     have_text('Item Name can\'t be blank')
-    expect(page).to     have_selector('.modal-backdrop', count: 1)
+    expect(page).to     have_css('.modal-backdrop', count: 1)
     expect(page).to_not have_text('Sort order is not a number')
   end
 
