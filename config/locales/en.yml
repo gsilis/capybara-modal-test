@@ -30,6 +30,8 @@ en:
         destroy:
           notice: "'%{name}' was removed from the list."
           error: "'%{name}' could not be removed from the list."
+        reorder:
+          notice: "Pretty list items have been reordered."
     attributes:
       pretty_list_item:
         name: "Item Name"
