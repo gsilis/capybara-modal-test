@@ -6,7 +6,7 @@
  * Initiates a request to save the reordered list items
  * @param  {array} ids - The list of IDs in correct order
  */
-function update_list_order(ids) {
+function updateListOrder(ids) {
 
 
 };

@@ -81,7 +81,7 @@ feature 'Pretty list items index' do
 
     visit '/'
 
-    page.execute_script %Q|update_list_order(#{pretty_list_item_ids.to_json});|
+    page.execute_script %Q|updateListOrder(#{pretty_list_item_ids.to_json});|
 
     expect(page).to have_xpath('//div[@class="pretty-list"]/ul/li[first()]/span', text: first_list_item.name)
     expect(page).to have_xpath('//div[@class="pretty-list"]/ul/li[last()]/span', text: last_list_item.name)
