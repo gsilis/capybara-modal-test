@@ -74,7 +74,17 @@ feature 'Pretty list items index' do
     expect(page).to_not have_text('Sort order is not a number')
   end
 
-  scenario 'it allows for sorting of the items' do
+  scenario 'it allows for sorting of the items', js: true do
+    pretty_list_item_ids = pretty_list_items.map(&:id).reverse
+    first_list_item = pretty_list_items.last
+    last_list_item = pretty_list_items.first
+
+    visit '/'
+
+    page.execute_script %Q|update_list_order(#{pretty_list_item_ids.to_json});|
+
+    expect(page).to have_xpath('//div[@class="pretty-list"]/ul/li[first()]/span', text: first_list_item.name)
+    expect(page).to have_xpath('//div[@class="pretty-list"]/ul/li[last()]/span', text: last_list_item.name)
   end
 
 end
