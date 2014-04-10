@@ -1,7 +1,7 @@
 %h1.page-header
   Pretty List Items
 .pretty-list
-  %ul
+  %ul{ data: { reorderurl: reorder_pretty_list_items_path } }
     - @list_items.each do |item|
       = render 'index_item', item: item
   = link_to [:new, :pretty_list_item],  class: %w[btn btn-primary], remote: true do

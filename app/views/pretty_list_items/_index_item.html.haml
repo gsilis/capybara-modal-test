@@ -1,4 +1,4 @@
-%li{ id: dom_id(item) }
+%li{ id: dom_id(item), data: { id: item.id } }
   %span= item.name
   = link_to 'Edit',  [:edit, item], class: 'btn',             remote: true
   = link_to          [item],        class: 'btn btn-danger',  remote: true, method: :delete do
