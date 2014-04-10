@@ -57,6 +57,19 @@ class PrettyListItemsController < ApplicationController
     end
   end
 
+  def reorder
+    pretty_list_item_ids_params.each_with_index do |item_id, index|
+      item = PrettyListItem.find(item_id)
+      item.update_columns sort_order: index + 1
+    end
+
+    flash.now[:notice] = t('activerecord.flash.pretty_list_item.reorder.notice')
+
+    respond_to do |format|
+      format.js
+    end
+  end
+
   private
     def fetch_pretty_list_items
       @list_items = PrettyListItem.all
@@ -68,5 +81,9 @@ class PrettyListItemsController < ApplicationController
 
     def pretty_list_item_params
       params[:pretty_list_item].permit(:name, :description)
+    end
+
+    def pretty_list_item_ids_params
+      params[:pretty_list_item_ids]
     end
 end
