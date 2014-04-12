@@ -14,3 +14,34 @@ body {
 .alert ul {
     margin-bottom: 0;
 }
+
+ul.sortable-list {
+    list-style-type: none;
+    margin-left: 0;
+}
+
+ul.sortable-list > li {
+    background: #EFEFEF;
+    background: -webkit-linear-gradient(#EFEFEF, #DEDEDE);
+    background: -o-linear-gradient(#EFEFEF, #DEDEDE);
+    background: -moz-linear-gradient(#EFEFEF, #DEDEDE);
+    background: linear-gradient(#EFEFEF, #DEDEDE);
+    border: 1px solid #DDD;
+    border-collapse: separate;
+    border-radius: 5px;
+    border-spacing: 5px 5px;
+    display: table;
+    line-height: 30px;
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+ul.sortable-list > li > span,
+ul.sortable-list > li > a {
+    display: table-cell;
+}
+
+ul.sortable-list > li > a {
+    width: 85px;
+}
