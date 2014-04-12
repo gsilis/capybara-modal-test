@@ -89,6 +89,6 @@ class PrettyListItemsController < ApplicationController
     end
 
     def ensure_type_of_reorder_ids_param
-      head 422 unless params[:pretty_list_item_ids].is_a Array
+      head 422 unless params[:pretty_list_item_ids].is_a? Array
     end
 end
