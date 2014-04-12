@@ -42,6 +42,16 @@ ul.sortable-list > li > * {
     vertical-align: middle;
 }
 
+ul.sortable-list > li.sortable-placeholder {
+    background: transparent;
+    border: 3px dashed #3a87ad;
+    height: 50px;
+}
+
+ul.sortable-list > li.ui-sortable-helper {
+    opacity: 0.8;
+}
+
 ul.sortable-list > li > span > span {
     background-image: url(/assets/drag-handle.png);
     background-position: left center;

@@ -7,6 +7,7 @@ function setupSortableList() {
     $('.pretty-list > ul').sortable({
 
         handle: 'span > span',
+        placeholder: 'sortable-placeholder',
         stop: onUpdateListOrder
     });
 };
