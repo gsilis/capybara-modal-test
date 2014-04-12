@@ -1,6 +1,7 @@
 class PrettyListItemsController < ApplicationController
   before_action :fetch_pretty_list_items
   before_action :fetch_pretty_list_item, only: [:edit, :destroy, :update]
+  before_action :ensure_type_of_reorder_ids_param, only: [:reorder]
 
   def new
     @list_item = PrettyListItem.new
@@ -85,5 +86,9 @@ class PrettyListItemsController < ApplicationController
 
     def pretty_list_item_ids_params
       params[:pretty_list_item_ids]
+    end
+
+    def ensure_type_of_reorder_ids_param
+      head 422 unless params[:pretty_list_item_ids].is_a Array
     end
 end
