@@ -31,15 +31,24 @@ ul.sortable-list > li {
     border-radius: 5px;
     border-spacing: 5px 5px;
     display: table;
-    line-height: 30px;
+    line-height: 44px;
     margin-bottom: 5px;
     padding: 5px;
     width: 100%;
 }
 
-ul.sortable-list > li > span,
-ul.sortable-list > li > a {
+ul.sortable-list > li > * {
     display: table-cell;
+    vertical-align: middle;
+}
+
+ul.sortable-list > li > span > span {
+    background-image: url(/assets/drag-handle.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    cursor: move;
+    font-size: 16px;
+    padding-left: 50px;
 }
 
 ul.sortable-list > li > a {
