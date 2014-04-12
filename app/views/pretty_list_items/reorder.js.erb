@@ -1,2 +1,3 @@
 displayFlashMessage('<%= escape_javascript render(partial: 'layouts/flash_messages') %>');
 $('.sortable-list').replaceWith('<%= escape_javascript render(partial: 'index_list', locals: { list_items: @list_items }) %>');
+setupSortableList();
