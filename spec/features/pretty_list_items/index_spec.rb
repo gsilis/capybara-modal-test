@@ -45,7 +45,7 @@ feature 'Pretty list items index' do
     expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li[last()]/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was added to the list.")
     expect(page).to_not have_css('.modal-backdrop')
-    expect(page).to_not have_css('.modal.in')
+    expect(page).to     have_css('.modal', visible: false)
   end
 
   scenario 'it can update existing items', js: true do
@@ -60,7 +60,7 @@ feature 'Pretty list items index' do
     expect(page).to     have_xpath('//div[@class="pretty-list"]/ul/li/span', text: valid_params[:name])
     expect(page).to     have_text("'#{valid_params[:name]}' was changed.")
     expect(page).to_not have_css('.modal-backdrop')
-    expect(page).to     have_css('.modal.in', visible: false)
+    expect(page).to     have_css('.modal', visible: false)
   end
 
   scenario 'it displays the modal properly when validations errors occur', js: true do
