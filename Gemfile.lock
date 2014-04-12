@@ -177,6 +177,8 @@ GEM
       atomic (>= 1.1.7, < 2)
     tilt (1.4.1)
     timers (1.1.0)
+    touchpunch-rails (1.0.1)
+      railties (>= 3.1, < 4.1)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -217,6 +219,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
+  touchpunch-rails
   turbolinks
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
